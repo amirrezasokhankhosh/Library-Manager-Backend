@@ -69,8 +69,8 @@ class Book(models.Model):
         
 class Borrow(models.Model):
     
-    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
-    member_id = models.ForeignKey(Member, on_delete=models.CASCADE)
+    book_id = models.ForeignKey(Book, related_name='borrows', on_delete=models.CASCADE)
+    member_id = models.ForeignKey(Member, related_name='borrows', on_delete=models.CASCADE)
     duration_days = models.IntegerField(blank=False)
     date_added = models.DateTimeField(auto_now_add=True)
     date_ended = models.DateField(null=True, blank=True)
