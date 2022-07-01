@@ -10,7 +10,7 @@ class BorrowSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Borrow
         fields = ['book_id', 'member_id', 'duration_days',
-                  'date_ended', 'total_delay_fee']
+                  'date_added', 'date_ended', 'total_delay_fee']
 class MemberSerializer(serializers.HyperlinkedModelSerializer):
     borrows = BorrowSerializer(read_only=True, many=True)
     class Meta:
@@ -23,13 +23,16 @@ class MemberSerializer(serializers.HyperlinkedModelSerializer):
 class BookSerializer(serializers.HyperlinkedModelSerializer):
     borrows = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     categories = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all(), many=True)
-    publications = serializers.PrimaryKeyRelatedField(queryset=Publication.objects.all(), many=True)
-    authors = serializers.PrimaryKeyRelatedField(queryset=Author.objects.all(), many=True)
+    categories = serializers.StringRelatedField(many=True, read_only=True)
+    # publications = serializers.PrimaryKeyRelatedField(queryset=Publication.objects.all(), many=True)
+    publications = serializers.StringRelatedField(many=True, read_only=True)
+    # authors = serializers.PrimaryKeyRelatedField(queryset=Author.objects.all(), many=True)
+    authors = serializers.StringRelatedField(many=True, read_only=True)
     class Meta:
         model = Book
         fields = ['name', 'written_date',
                   'price_after_delay', 'availability',
-                  'categories', 'publications', 'authors',
+                  'categories' , 'publications',  'authors',
                   'borrows']
         
 
