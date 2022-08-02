@@ -41,7 +41,7 @@ On your browser open the mentioned address. You will see the API Root of the pro
 
 ## Full Project
 
-To be able to use the application in the practical settings, you need to install the  https://github.com/amirrezasokhankhosh/Library_Manager_Frontend as well. After that the whole application will look like the pictures below.
+To be able to use the application in the practical settings, you need to install the  [Library-Manager-Frontend](https://github.com/amirrezasokhankhosh/Library-Manager-Frontend) as well. After that the whole application will look like the pictures below.
 
 ![Untitled](README/Untitled%202.png)
 
